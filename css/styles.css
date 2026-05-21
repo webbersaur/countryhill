@@ -839,6 +839,56 @@ p {
   aspect-ratio: 4 / 3;
 }
 
+/* ----- Story Callout (Grass Island) ----- */
+.story-callout {
+  background: var(--white);
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--cream-100);
+  border-bottom: 1px solid var(--cream-100);
+  position: relative;
+}
+
+.story-callout::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.story-callout__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 var(--space-lg);
+}
+
+.story-callout__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: var(--space-lg);
+  color: var(--cream-900);
+}
+
+.story-callout p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--cream-700);
+  margin-bottom: var(--space-md);
+}
+
+.story-callout__sub {
+  font-style: italic;
+  color: var(--accent);
+  margin-top: var(--space-lg);
+  margin-bottom: 0 !important;
+  font-size: 1rem;
+}
+
 /* ----- Service Groups ----- */
 .service-group {
   margin-bottom: var(--space-3xl);
