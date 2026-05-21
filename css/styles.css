@@ -860,11 +860,38 @@ p {
   border-radius: 0 0 var(--radius-sm) var(--radius-sm);
 }
 
-.story-callout__inner {
-  max-width: 720px;
+.story-callout__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  max-width: 1080px;
   margin: 0 auto;
+}
+
+.story-callout__media {
+  margin: 0;
+}
+
+.story-callout__media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.story-callout__media figcaption {
+  margin-top: var(--space-sm);
+  font-size: 0.8125rem;
+  color: var(--cream-500);
+  font-style: italic;
   text-align: center;
-  padding: 0 var(--space-lg);
+}
+
+.story-callout__body {
+  max-width: 520px;
 }
 
 .story-callout__title {
@@ -874,7 +901,7 @@ p {
   color: var(--cream-900);
 }
 
-.story-callout p {
+.story-callout__body p {
   font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--cream-700);
@@ -887,6 +914,19 @@ p {
   margin-top: var(--space-lg);
   margin-bottom: 0 !important;
   font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .story-callout__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .story-callout__body {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 /* ----- Service Groups ----- */
