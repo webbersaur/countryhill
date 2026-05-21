@@ -41,7 +41,7 @@ Search the codebase for `TODO` to find every spot. Quick summary:
 - [ ] **Insurance / licensing language** — don't claim "Fully Insured" until confirmed
 - [ ] **Areas Served radius** — confirm towns + radius
 - [ ] **Business hours** — confirm Mon–Sat 7am–6pm in JSON-LD
-- [ ] **Custom domain** — update `og:url` and JSON-LD `url`; add `CNAME` file
+- [x] **Custom domain** — countryhilllandscapingct.com wired up in Vercel + HTML/JSON-LD (DNS at Google Domains pending: `A @ 76.76.21.21` / `CNAME www cname.vercel-dns.com`)
 - [ ] **Social profiles** — add `sameAs` to JSON-LD once Facebook / Google Business URLs exist
 
 ## Files
