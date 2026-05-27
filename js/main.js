@@ -101,6 +101,44 @@
     });
   }
 
+  // ── Image Lightbox ─────────────────────────────────────────────
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxSource = document.getElementById('lightbox-source');
+  const lightboxTriggers = document.querySelectorAll('.work-mosaic__trigger');
+
+  if (lightbox && lightboxImage && lightboxTriggers.length > 0) {
+    lightboxTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        const src = trigger.getAttribute('data-lightbox-src');
+        const srcset = trigger.getAttribute('data-lightbox-srcset');
+        const alt = trigger.getAttribute('data-lightbox-alt') || '';
+        if (lightboxSource) lightboxSource.setAttribute('srcset', srcset || '');
+        lightboxImage.setAttribute('src', src);
+        lightboxImage.setAttribute('alt', alt);
+        if (typeof lightbox.showModal === 'function') {
+          lightbox.showModal();
+        } else {
+          lightbox.setAttribute('open', '');
+        }
+        document.body.classList.add('lightbox-open');
+      });
+    });
+
+    // Close on backdrop click (click target is the dialog itself, not its children)
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox || e.target.hasAttribute('data-lightbox-close') || e.target.closest('[data-lightbox-close]')) {
+        lightbox.close();
+      }
+    });
+
+    lightbox.addEventListener('close', function () {
+      document.body.classList.remove('lightbox-open');
+      lightboxImage.setAttribute('src', '');
+      if (lightboxSource) lightboxSource.setAttribute('srcset', '');
+    });
+  }
+
   // ── Smooth Scroll for Anchor Links ─────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
